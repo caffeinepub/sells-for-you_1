@@ -1,0 +1,201 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Sells For You E-commerce Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create product catalog page displaying products with name, description, price, and image retrieved from backend",
+      "acceptanceCriteria": [
+        "Products are displayed in a grid layout",
+        "Each product shows name, description, price, and image",
+        "Product data is stored and retrieved from the backend"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProductCatalog.tsx",
+          "operation": "create",
+          "description": "Create product catalog page component that fetches products using getAllProducts backend method and displays them in a responsive grid layout. Each product card shows name, description, price (formatted from bigint), and image. Use React Query for data fetching and loading states."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create reusable ProductCard component that receives a Product object and renders name, description, price, and image in a card layout with styling consistent with the e-commerce theme. Include an 'Add to Cart' button for REQ-3 integration."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for ProductCatalog page and include it in the navigation. Wire the catalog as the main browsing page accessible to all users without authentication."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement shopping cart functionality with add, update quantity, and remove operations",
+      "acceptanceCriteria": [
+        "Users can add products to cart with quantity selection",
+        "Cart displays all added items with subtotals",
+        "Users can update quantities or remove items from cart",
+        "Cart shows total price"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useCart.ts",
+          "operation": "create",
+          "description": "Create custom hook for cart operations using React Query mutations for addToCart, removeFromCart, and getCart backend methods. Manage cart state with query invalidation and optimistic updates. Handle quantity management and provide cart summary calculations."
+        },
+        {
+          "path": "frontend/src/pages/ShoppingCart.tsx",
+          "operation": "create",
+          "description": "Create shopping cart page that displays all cart items using getCart backend method. Show product details with quantity controls, subtotals, and total price. Include update quantity and remove item buttons that call the cart hook methods. Display empty cart state when no items present."
+        },
+        {
+          "path": "frontend/src/components/CartItemRow.tsx",
+          "operation": "create",
+          "description": "Create component for individual cart item display showing product image, name, price, quantity selector, subtotal, and remove button. Wire quantity changes and removal to the useCart hook methods."
+        },
+        {
+          "path": "frontend/src/components/AddToCartButton.tsx",
+          "operation": "create",
+          "description": "Create reusable AddToCartButton component with quantity selector that calls addToCart from useCart hook. Include loading and success states. This component will be used in ProductCard."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Integrate AddToCartButton component into the ProductCard, passing the product ID and enabling users to add items directly from the catalog."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for ShoppingCart page and include a cart icon with item count in the navigation bar that links to the cart page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Integrate Internet Identity authentication for secure user login and checkout access",
+      "acceptanceCriteria": [
+        "Users can authenticate using Internet Identity",
+        "Checkout process requires authentication",
+        "Authenticated users can view their order history"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useAuth.ts",
+          "operation": "create",
+          "description": "Create authentication hook that integrates Internet Identity for login and logout. Manage authenticated user principal state and provide authentication status. Use the backend connection configuration from core-infrastructure component."
+        },
+        {
+          "path": "frontend/src/components/AuthButton.tsx",
+          "operation": "create",
+          "description": "Create authentication button component that displays login/logout options based on authentication state from useAuth hook. Show user principal or login prompt accordingly."
+        },
+        {
+          "path": "frontend/src/components/ProtectedRoute.tsx",
+          "operation": "create",
+          "description": "Create protected route wrapper component that checks authentication status using useAuth hook and redirects unauthenticated users to login or shows authentication prompt before allowing access to protected pages like checkout and order history."
+        },
+        {
+          "path": "frontend/src/pages/OrderHistory.tsx",
+          "operation": "create",
+          "description": "Create order history page that fetches and displays user orders. This page will be wrapped with ProtectedRoute to ensure only authenticated users can access it. Display order details including items, total, and timestamp."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add AuthButton to the navigation bar. Add route for OrderHistory page wrapped with ProtectedRoute component to enforce authentication requirement."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create checkout flow capturing order details and storing completed orders for authenticated users",
+      "acceptanceCriteria": [
+        "Checkout displays cart summary and total",
+        "Users can complete purchase after authentication",
+        "Orders are stored with user identity, items, and timestamp",
+        "Users receive confirmation after successful purchase"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Checkout.tsx",
+          "operation": "create",
+          "description": "Create checkout page that displays cart summary with all items and total price. Include a 'Complete Purchase' button that calls the checkout backend method. This page must be wrapped with ProtectedRoute to require authentication. Handle success and error states."
+        },
+        {
+          "path": "frontend/src/pages/OrderConfirmation.tsx",
+          "operation": "create",
+          "description": "Create order confirmation page that displays successful order details after checkout completion. Show order ID, items purchased, total amount, and timestamp. Include links to view order history or return to catalog."
+        },
+        {
+          "path": "frontend/src/hooks/useCheckout.ts",
+          "operation": "create",
+          "description": "Create checkout hook using React Query mutation for the checkout backend method. Handle successful order creation by navigating to OrderConfirmation page with order ID. Manage loading and error states during checkout process."
+        },
+        {
+          "path": "frontend/src/pages/ShoppingCart.tsx",
+          "operation": "modify",
+          "description": "Add 'Proceed to Checkout' button that navigates authenticated users to the Checkout page. For unauthenticated users, show a prompt to login before checkout."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add routes for Checkout page (wrapped with ProtectedRoute) and OrderConfirmation page. Ensure proper navigation flow from cart to checkout to confirmation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Design professional e-commerce visual theme with cohesive colors, typography, and layout",
+      "acceptanceCriteria": [
+        "Consistent visual style applied across all pages",
+        "Professional color scheme appropriate for e-commerce",
+        "Clear typography hierarchy for product information",
+        "Clean, spacious layout that highlights products effectively"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define professional e-commerce color palette using CSS custom properties with primary, secondary, accent colors suitable for trust and quality. Establish typography scale with clear hierarchy for headings, body text, and product information. Include spacing utilities for clean, spacious layouts."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind configuration with custom e-commerce theme colors, typography settings, and spacing scale that align with the professional visual identity. Configure font families for clean, modern typography."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create main layout component with consistent header, navigation, and footer structure. Apply theme styling and ensure cohesive visual presentation across all pages. Include navigation to catalog, cart, and authentication elements."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with Layout component to ensure consistent theme application across the entire application."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Wire generated product placeholder images and hero banner into the frontend as static assets",
+      "acceptanceCriteria": [
+        "Generated images are placed in frontend/public/assets/generated directory",
+        "Images are referenced correctly in product listings and hero section",
+        "Images load properly on the frontend"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProductCatalog.tsx",
+          "operation": "modify",
+          "description": "Add hero section at the top of the catalog page that displays the generated hero banner image from frontend/public/assets/generated/hero-banner.dim_1920x600.png. Include welcoming headline and subheading for the e-commerce site."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Reference product images from the Product object's image field. For placeholder products without custom images, use the generated placeholder images: frontend/public/assets/generated/product-placeholder-1.dim_400x400.png, frontend/public/assets/generated/product-placeholder-2.dim_400x400.png, and frontend/public/assets/generated/product-placeholder-3.dim_400x400.png. Ensure proper image loading with alt text and responsive sizing."
+        }
+      ]
+    }
+  ]
+}

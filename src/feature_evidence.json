@@ -1,0 +1,131 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-product-catalog-page-that-displays-products-with-name-description-price-and-image",
+      "featureTitle": "Create a product catalog page that displays products with name, description, price, and image",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/pages/ProductCatalog.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-shopping-cart-functionality-allowing-users-to-add-products-update-quantities-and-remove-items",
+      "featureTitle": "Create shopping cart functionality allowing users to add products, update quantities, and remove items",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AddToCartButton.tsx",
+        "frontend/src/components/CartItemRow.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/hooks/useCart.ts",
+        "frontend/src/pages/ShoppingCart.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-integrate-internet-identity-authentication-for-user-login-and-secure-checkout",
+      "featureTitle": "Integrate Internet Identity authentication for user login and secure checkout",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AuthButton.tsx",
+        "frontend/src/components/ProtectedRoute.tsx",
+        "frontend/src/pages/OrderHistory.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-checkout-flow-that-captures-order-details-and-stores-completed-orders",
+      "featureTitle": "Create a checkout flow that captures order details and stores completed orders",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useCheckout.ts",
+        "frontend/src/pages/Checkout.tsx",
+        "frontend/src/pages/OrderConfirmation.tsx",
+        "frontend/src/pages/ShoppingCart.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-professional-modern-visual-theme-with-a-cohesive-color-palette-clean-typography-and-polished-layout-that-conveys-trust-and-quality-for-an-e-commerce-platform",
+      "featureTitle": "Design a professional, modern visual theme with a cohesive color palette, clean typography, and polished layout that conveys trust and quality for an e-commerce platform",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-generated-product-placeholder-images-and-hero-banner-as-static-assets-in-frontend-public-assets-generated",
+      "featureTitle": "Render generated product placeholder images and hero banner as static assets in frontend/public/assets/generated",
+      "files": [
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/pages/ProductCatalog.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

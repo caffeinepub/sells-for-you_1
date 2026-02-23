@@ -1,0 +1,137 @@
+{
+  "kind": "build_request",
+  "title": "Create e-commerce website for Sells For You",
+  "projectName": "Sells For You",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a product catalog page that displays products with name, description, price, and image",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Products are displayed in a grid layout",
+        "Each product shows name, description, price, and image",
+        "Product data is stored and retrieved from the backend"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend storage for products with fields: id, name, description, price, and image filename",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend can store and retrieve product information",
+        "Products persist across canister upgrades",
+        "Backend provides methods to list all products"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create shopping cart functionality allowing users to add products, update quantities, and remove items",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can add products to cart with quantity selection",
+        "Cart displays all added items with subtotals",
+        "Users can update quantities or remove items from cart",
+        "Cart shows total price"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Integrate Internet Identity authentication for user login and secure checkout",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can authenticate using Internet Identity",
+        "Checkout process requires authentication",
+        "Authenticated users can view their order history"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create a checkout flow that captures order details and stores completed orders",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Checkout displays cart summary and total",
+        "Users can complete purchase after authentication",
+        "Orders are stored with user identity, items, and timestamp",
+        "Users receive confirmation after successful purchase"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Design a professional, modern visual theme with a cohesive color palette, clean typography, and polished layout that conveys trust and quality for an e-commerce platform",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Consistent visual style applied across all pages",
+        "Professional color scheme appropriate for e-commerce",
+        "Clear typography hierarchy for product information",
+        "Clean, spacious layout that highlights products effectively"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Render generated product placeholder images and hero banner as static assets in frontend/public/assets/generated",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are placed in frontend/public/assets/generated directory",
+        "Images are referenced correctly in product listings and hero section",
+        "Images load properly on the frontend"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use Internet Identity for authentication only",
+    "All backend logic must be in a single Motoko actor",
+    "Frontend must use React, Tailwind CSS, and React Query"
+  ],
+  "nonGoals": [
+    "Payment processing integration",
+    "Inventory management system",
+    "Admin panel for product management",
+    "Email notifications",
+    "Product reviews or ratings"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Professional hero banner showing e-commerce/online shopping theme with modern gradient background (hero-banner.dim_1920x600.png)",
+      "Generic product placeholder image with box/package icon on neutral background (product-placeholder-1.dim_400x400.png)",
+      "Generic product placeholder image with different package design on neutral background (product-placeholder-2.dim_400x400.png)",
+      "Generic product placeholder image with another package variant on neutral background (product-placeholder-3.dim_400x400.png)"
+    ],
+    "edits": []
+  }
+}

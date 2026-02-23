@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "E-commerce website for 'Sells For You' - a product sales platform with product listings, shopping cart, and Internet Identity authentication for secure checkout",
+  "architectural_notes": [
+    "E-commerce platform with Internet Identity integration",
+    "Product catalog with listings management",
+    "Shopping cart system for order management"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Professional hero banner showing e-commerce/online shopping theme with modern gradient background (hero-banner.dim_1920x600.png)\n- Generic product placeholder image with box/package icon on neutral background (product-placeholder-1.dim_400x400.png)\n- Generic product placeholder image with different package design on neutral background (product-placeholder-2.dim_400x400.png)\n- Generic product placeholder image with another package variant on neutral background (product-placeholder-3.dim_400x400.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-product-catalog-page-that-displays-products-with-name-description-price-and-image",
+      "title": "Create a product catalog page that displays products with name, description, price, and image",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-shopping-cart-functionality-allowing-users-to-add-products-update-quantities-and-remove-items",
+      "title": "Create shopping cart functionality allowing users to add products, update quantities, and remove items",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-integrate-internet-identity-authentication-for-user-login-and-secure-checkout",
+      "title": "Integrate Internet Identity authentication for user login and secure checkout",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-checkout-flow-that-captures-order-details-and-stores-completed-orders",
+      "title": "Create a checkout flow that captures order details and stores completed orders",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-professional-modern-visual-theme-with-a-cohesive-color-palette-clean-typography-and-polished-layout-that-conveys-trust-and-quality-for-an-e-commerce-platform",
+      "title": "Design a professional, modern visual theme with a cohesive color palette, clean typography, and polished layout that conveys trust and quality for an e-commerce platform",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-generated-product-placeholder-images-and-hero-banner-as-static-assets-in-frontend-public-assets-generated",
+      "title": "Render generated product placeholder images and hero banner as static assets in frontend/public/assets/generated",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Product listings display",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Shopping cart functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Internet Identity authentication for checkout",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement backend storage for products with fields: id, name, description, price, and image filename",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Sells For You",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

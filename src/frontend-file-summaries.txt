@@ -1,0 +1,19 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up TanStack Router with routes for product catalog, shopping cart, checkout, order confirmation, and order history, wrapping protected routes with authentication.",
+  "frontend/src/components/Layout.tsx": "Root layout component with sticky header containing logo, cart icon with item count badge, authentication button, and footer with branding and caffeine.ai attribution.",
+  "frontend/src/components/AuthButton.tsx": "Authentication button component that displays login button for anonymous users or a dropdown menu with user principal and logout option for authenticated users.",
+  "frontend/src/components/ProtectedRoute.tsx": "Route wrapper component that checks authentication status and displays a login prompt card for unauthenticated users before allowing access to protected pages.",
+  "frontend/src/components/ProductCard.tsx": "Reusable product card component displaying product image, name, description, price badge, and add-to-cart button with hover effects.",
+  "frontend/src/components/AddToCartButton.tsx": "Interactive button component with quantity input that adds products to cart, showing loading and success states with visual feedback.",
+  "frontend/src/components/CartItemRow.tsx": "Cart item display component showing product details, quantity selector with live updates, subtotal calculation, and remove button.",
+  "frontend/src/pages/ProductCatalog.tsx": "Home page with hero banner section and product grid displaying all available products with loading skeletons and error handling.",
+  "frontend/src/pages/ShoppingCart.tsx": "Shopping cart page displaying cart items with product details, order summary card with total, and checkout button that prompts login for unauthenticated users.",
+  "frontend/src/pages/Checkout.tsx": "Checkout page showing order summary with all cart items and a complete purchase button that processes the order for authenticated users.",
+  "frontend/src/pages/OrderConfirmation.tsx": "Order confirmation page displaying successful order details including order ID, total amount, and list of purchased items with navigation options.",
+  "frontend/src/pages/OrderHistory.tsx": "Order history page placeholder showing empty state since backend doesn't provide user order history retrieval method.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching products and orders from the backend using the actor interface.",
+  "frontend/src/hooks/useCart.ts": "React Query hooks for cart operations including fetching cart items, adding products to cart, and removing items with automatic cache invalidation.",
+  "frontend/src/hooks/useCheckout.ts": "React Query mutation hook for processing checkout that calls the backend checkout method and invalidates cart and orders queries.",
+  "frontend/src/index.css": "Global styles with OKLCH color system defining a professional purple-blue color palette for both light and dark modes with proper contrast ratios.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with custom colors mapped to CSS variables, Inter font family, custom border radius, and soft shadow utilities."
+}

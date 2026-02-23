@@ -1,2 +1,3 @@
-# sells-for-you_1
-Exported from Caffeine project: Sells For You
+## Sells For You
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
